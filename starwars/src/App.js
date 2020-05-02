@@ -2,6 +2,18 @@ import React, {useState , useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
 import Character from '../src/components/Character';
+import styled from "styled-components";
+
+
+const Body = styled.div `
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+padding: 18px;
+text-align: center;
+padding-top: 3px;
+`;
 
 
 const App = () => {
@@ -27,11 +39,16 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <Body>
         {characters.map(character => {
-            return(<Character key={character.id} image={character.image} name={character.name} status={character.status} species={character.species} gender={character.gender} />)
+            return(<Character key={character.id} 
+              image={character.image} 
+              name={character.name} 
+              status={character.status} 
+              species={character.species} 
+              gender={character.gender} />)
         })}     
-    </div>
+    </Body>
 
 
 
